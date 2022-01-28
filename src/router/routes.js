@@ -11,6 +11,10 @@ import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
 import TableList from "@/pages/TableList.vue";
 
+import Login from "@/pages/ingreso/Login";
+import Register from "@/pages/ingreso/Register";
+import Guard from "@/services/auth";
+
 const routes = [
   {
     path: "/",
@@ -52,9 +56,12 @@ const routes = [
         name: "table-list",
         component: TableList
       }
-    ]
+    ],
+    beforeEnter: Guard.auth
   },
-  { path: "*", component: NotFound }
+  { path: "*", component: NotFound },
+  { path: "/login", name: "Login", component: Login },
+  { path: "/register", name: "Register", component: Register }
 ];
 
 /**

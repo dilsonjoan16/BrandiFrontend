@@ -20,7 +20,18 @@ import router from "./router/index";
 import PaperDashboard from "./plugins/paperDashboard";
 import "vue-notifyjs/themes/default.css";
 
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 Vue.use(PaperDashboard);
+Vue.use(VueAxios, axios);
+Vue.use(VueSweetalert2);
 
 /* eslint-disable no-new */
 new Vue({

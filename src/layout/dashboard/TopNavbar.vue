@@ -14,10 +14,12 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <form @submit.stop.prevent="logout">
+            <button class="nav-link btn btn-link" type="submit">
               <i class="ti-panel"></i>
-              <p>Stats</p>
-            </a>
+              <p>Logout</p>
+            </button>
+            </form>
           </li>
           <drop-down class="nav-item"
                      title="5 Notifications"
@@ -42,6 +44,8 @@
     </div></nav>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   computed: {
     routeName() {
@@ -51,7 +55,11 @@ export default {
   },
   data() {
     return {
-      activeNotifications: false
+      activeNotifications: false,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('user_token')}`
+      }
     };
   },
   methods: {
@@ -69,6 +77,24 @@ export default {
     },
     hideSidebar() {
       this.$sidebar.displaySidebar(false);
+    },
+    async logout() {
+      // localStorage.removeItem('user_token');
+      // this.$router.push("/login");
+      // const token = localStorage.getItem('user_token');
+        
+      try {
+
+        await this.axios.post(`http://127.0.0.1:8000/api/auth/logout`, this.headers)
+        .then(response => {
+          console.log(response); 
+        })
+
+      }
+
+      catch(error){
+          console.log(error);
+      }
     }
   }
 };
