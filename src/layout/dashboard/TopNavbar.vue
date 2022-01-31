@@ -56,10 +56,7 @@ export default {
   data() {
     return {
       activeNotifications: false,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('user_token')}`
-      }
+      token: localStorage.getItem('user_token')
     };
   },
   methods: {
@@ -79,22 +76,34 @@ export default {
       this.$sidebar.displaySidebar(false);
     },
     async logout() {
-      // localStorage.removeItem('user_token');
-      // this.$router.push("/login");
-      // const token = localStorage.getItem('user_token');
-        
-      try {
+      localStorage.removeItem('user_token');
+      localStorage.removeItem('cod');
+      this.$swal('Salida del sistema exitosa!', 'Usuario deslogueado con exito!', 'OK');
+      this.$router.push("/login");
 
-        await this.axios.post(`http://127.0.0.1:8000/api/auth/logout`, this.headers)
-        .then(response => {
-          console.log(response); 
-        })
-
-      }
-
-      catch(error){
-          console.log(error);
-      }
+      // try {
+      //   let response = await axios.post(`http://127.0.0.1:8000/auth/logout`, {
+      //   headers: {
+      //   'Authorization': `Bearer ${this.token}`
+      // }
+      //   })
+      //   if (response.status == 200) {
+      //     this.$swal('Salida del sistema exitosa!', 'Usuario deslogueado con exito!', 'OK');
+      //       this.$router.push('/login');
+      //   } else {
+      //     this.$swal({
+      //     icon: 'error',
+      //     title: 'Oops...',
+      //     text: 'Ocurrio un error al momento de salir de sistema! Intentelo nuevamente',
+      //     })
+      //   }
+      // } catch (error) {
+      //   this.$swal({
+      //     icon: 'error',
+      //     title: 'Oops...',
+      //     text: 'Ocurrio un error al momento de salir de sistema! Intentelo nuevamente',
+      //     })
+      // }
     }
   }
 };
