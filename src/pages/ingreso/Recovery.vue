@@ -5,24 +5,14 @@
       <h1 class="h3 mb-3 font-weight-normal text-center"></h1>
 
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input v-model="login.email" type="email" id="inputEmail" class="form-control text-white" placeholder="Ingrese el email" maxlength="100" required autocomplete="off" autofocus>
+      <input v-model="login.email" type="email" id="inputEmail" class="form-control text-white rounded" placeholder="Ingrese el email" maxlength="100" required autocomplete="off" autofocus>
 
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input v-model="login.password" type="password" id="inputPassword" class="form-control text-white" placeholder="Ingrese el password" minlength="6" maxlength="12" autocomplete="off" required>
-
-      <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-
-      <button class="btn btn-lg btn-outline-light btn-block" type="submit" v-if="loader2">Ingresar</button>
+      <p v-if="error" class="error">El email ingresado no concuerda con alguno en base de datos.</p>
+      <br>
+      <button class="btn btn-lg btn-outline-light btn-block" type="submit" v-if="loader2">Recuperar</button>
       <br>
       <hr>
     <div class="spinner my-auto mx-auto" v-if="loader"></div>
-      <router-link to="/register" v-if="loader2" class="text-white" id="link">
-        Registrarme
-      </router-link>
-      <br>
-      <router-link to="/recovery" v-if="loader2" class="text-white" id="link">
-        Olvido de password
-      </router-link>
      </div>
     </form>
 </div>
@@ -30,13 +20,12 @@
 
 <script>
 	export default {
-		name: 'Login',
+		name: 'Recovery',
 
 		data() {
 			return {
 				login: {
 					email: '',
-					password: '',
 				},
 				error: false,
         loader:null,
@@ -53,12 +42,28 @@
         this.loader = true
         this.loader2 = false
 
-          await this.axios.post(`http://127.0.0.1:8000/api/auth/login`, this.login)
+          await this.axios.post(`http://127.0.0.1:8000/api/auth/recovery`, this.login)
           .then(response => {
-            localStorage.setItem('user_token', response.data.access_token);
-            this.$router.push('/dashboard');
+            if (response.status == 200) {
+            this.$swal({
+              icon: 'success',
+              title: 'Envio de correo exitoso!',
+              text: 'El password fue generado con exito! Se le invita a revisar su bandeja de entrada para obtener la nueva clave obtenida',
+          })
+            this.$router.push('/login');
+            } else {
+              this.loader = false
+              this.loader2 = true
+              this.login.email = ''
+              this.$swal({
+              icon: 'error',
+              title: 'Oops... Valida el email!',
+              text: 'El email ingresado puede que no este bien escrito o no existe en nuestra base de datos. Revisalo!',
+          })
+            }
           })
           .catch(error => {
+            this.login.email = ''
             this.loader = false
             this.loader2 = true
             this.error = true;
@@ -72,7 +77,6 @@
           // title: 'Oops... Valida el password!',
           // text: 'El formato correcto del password debe ser minimo 6 y maximo 12 caracteres, debe poseer 1 Mayuscula, 1 minuscula, 1 numero y 1 caracter especial como minimo respectivamente!',
           // })
-
 			},
 		},
 	};

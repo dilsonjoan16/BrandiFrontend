@@ -13,6 +13,7 @@ import TableList from "@/pages/TableList.vue";
 
 import Login from "@/pages/ingreso/Login";
 import Register from "@/pages/ingreso/Register";
+import Recovery from "@/pages/ingreso/Recovery";
 import Guard from "@/services/auth";
 
 const routes = [
@@ -61,7 +62,9 @@ const routes = [
   },
   { path: "*", component: NotFound },
   { path: "/login", name: "Login", component: Login },
-  { path: "/register", name: "Register", component: Register }
+  { path: "/register", name: "Register", component: Register },
+  { path: "/recovery", name: "Recovery", component: Recovery },
+
 ];
 
 /**

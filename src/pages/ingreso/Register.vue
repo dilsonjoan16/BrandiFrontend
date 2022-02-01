@@ -44,8 +44,11 @@
         if (regla2.test(this.register.password)) {
           await this.axios.post(`http://127.0.0.1:8000/api/auth/register`, this.register)
           .then(response => {
-            // this.$swal('!Usuario Registrado!');
-            this.$swal('Registro exitoso!', 'Usuario registrado con exito!', 'OK');
+            this.$swal({
+              icon: 'success',
+              title: 'Registro exitoso!',
+              text: 'Usuario registrado con exito!',
+          })
             this.$router.push('/login');
           })
           .catch(error => {
