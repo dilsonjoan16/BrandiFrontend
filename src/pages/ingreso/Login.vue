@@ -55,8 +55,12 @@
 
           await this.axios.post(`http://127.0.0.1:8000/api/auth/login`, this.login)
           .then(response => {
-            localStorage.setItem('user_token', response.data.access_token);
-            this.$router.push('/dashboard');
+            localStorage.setItem('user_token', response.data.token.access_token);
+            if (response.data.usuario.rol == "Admin") {
+              this.$router.push('/modalidad-cursos');
+            } else {
+              // this.$router.push('/')
+            }
           })
           .catch(error => {
             this.loader = false
@@ -109,7 +113,7 @@
   border-top-right-radius: 0;
 }
 .contenedor{
-  background: #ff00cc;  /* fallback for old browsers */
+background: #ff00cc;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 height: 100vh;

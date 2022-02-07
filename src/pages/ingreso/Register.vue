@@ -38,7 +38,7 @@
 
 		methods: {
 			async submit() {
-      const regla2 = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,8}$/;
+      const regla2 = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,12}$/;
         this.loader = true
         this.loader2 = false
         if (regla2.test(this.register.password)) {

@@ -2,7 +2,10 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links">
-        <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
+        <sidebar-link to="/modalidad-cursos" name="Modalidad de Cursos" icon="ti-receipt"/>
+        <sidebar-link to="/tipo-cursos" name="Tipo de Cursos" icon="ti-folder"/>
+        <sidebar-link to="/area-cursos" name="Area de Cursos" icon="ti-agenda"/>
+        <sidebar-link to="/cursos" name="Cursos" icon="ti-write"/>
         <sidebar-link to="/stats" name="User Profile" icon="ti-user"/>
         <sidebar-link to="/table-list" name="Table List" icon="ti-view-list-alt"/>
         <sidebar-link to="/typography" name="Typography" icon="ti-text"/>

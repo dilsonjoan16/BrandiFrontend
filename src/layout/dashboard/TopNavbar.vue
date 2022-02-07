@@ -80,7 +80,7 @@ export default {
       localStorage.removeItem('cod');
       this.$swal('Salida del sistema exitosa!', 'Usuario deslogueado con exito!', 'OK');
       this.$router.push("/login");
-
+      
       // try {
       //   let response = await axios.post(`http://127.0.0.1:8000/auth/logout`, {
       //   headers: {
