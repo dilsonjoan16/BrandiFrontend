@@ -102,12 +102,12 @@
       token: localStorage.getItem('user_token'),
       areaCursos: [],
       curso: {
-        area_id: '',
+        area_id: Number,
         nombre: '',
         estado: '',
         descripcion: '',
-        duracion: '',
-        precio: ''
+        duracion: Number,
+        precio: Number
       },
       loader: null,
       loader2: true

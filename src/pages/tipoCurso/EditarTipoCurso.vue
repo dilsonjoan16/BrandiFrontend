@@ -58,7 +58,7 @@
 
 <script>
   export default {
-  name: 'EditarTipoCurso',  
+  name: 'EditarTipoCurso',
 
   data() {
     return {
@@ -67,7 +67,7 @@
       modalidad:[],
       modalidadActual: null,
       tipo: {
-        modalidad_id: '',
+        modalidad_id: Number,
         nombre: '',
         estado: '',
       },
@@ -113,7 +113,7 @@
       })
     },
 
-    //actualizar tipo 
+    //actualizar tipo
     async EditarTipoCurso() {
       this.loader = true
       this.loader2 = false
@@ -136,7 +136,7 @@
         });
         this.$router.push('/tipo-cursos')
       })
-      .catch(error => {     
+      .catch(error => {
         this.loader = false
         this.loader2 = true
         this.$swal({

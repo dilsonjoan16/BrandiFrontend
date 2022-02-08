@@ -58,14 +58,14 @@
 
 <script>
   export default {
-  name: 'CrearTipoCurso',  
+  name: 'CrearTipoCurso',
 
   data() {
     return {
       token: localStorage.getItem('user_token'),
       modalidad: [],
       tipo: {
-        modalidad_id: '',
+        modalidad_id: Number,
         nombre: '',
         estado: ''
       },

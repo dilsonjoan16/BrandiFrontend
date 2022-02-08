@@ -58,14 +58,14 @@
 
 <script>
   export default {
-  name: 'CrearAreaCurso',  
+  name: 'CrearAreaCurso',
 
   data() {
     return {
       token: localStorage.getItem('user_token'),
       tipoCursos: [],
       area: {
-        tipo_id: '',
+        tipo_id: Number,
         nombre: '',
         estado: ''
       },
@@ -87,7 +87,7 @@
       // console.log(response.data);
       this.tipoCursos = response.data.tipoActivo
     },
-    
+
     async CrearAreaCurso() {
 
       this.loader = true

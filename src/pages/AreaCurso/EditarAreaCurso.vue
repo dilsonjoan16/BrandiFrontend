@@ -58,7 +58,7 @@
 
 <script>
   export default {
-  name: 'EditarAreaCurso',  
+  name: 'EditarAreaCurso',
 
   data() {
     return {
@@ -67,7 +67,7 @@
       tipoCursos:[],
       tipoCursoActual: null,
       area: {
-        tipo_id: '',
+        tipo_id: Number,
         nombre: '',
         estado: '',
       },
@@ -91,7 +91,7 @@
       // console.log(response.data);
       this.tipoCursos = response.data.tipoActivo
     },
-    
+
     //funcion para mostrar en la vista los datos del area de curso
     async MostrarAreaCurso() {
       //hay que pasarle la ruta con get
@@ -135,7 +135,7 @@
               text: 'Area de Curso modificada con exito!',
         });
       })
-      .catch(error => {     
+      .catch(error => {
         this.loader = false
         this.loader2 = true
         this.$swal({
