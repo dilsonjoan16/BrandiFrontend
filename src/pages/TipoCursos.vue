@@ -86,11 +86,11 @@ export default {
   },
   methods: {
     async crear(){
-      this.$router.push('/dashboard');
+      this.$router.push('/crear-tipocurso');
     },
     async editar(id){
       localStorage.setItem("ref", id)
-      this.$router.push('/dashboard')
+      this.$router.push('/editar-tipocurso')
     },
     async eliminar(){
       try{

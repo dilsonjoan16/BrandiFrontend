@@ -11,9 +11,23 @@ import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
 import TableList from "@/pages/TableList.vue";
 
+// <<<<<<< HEAD
 import TipoCursos from "@/pages/TipoCursos.vue";
 import AreaCursos from "@/pages/AreaCursos.vue";
 import Cursos from "@/pages/Cursos.vue";
+// =======
+import CrearModalidad from "@/pages/modalidad/CrearModalidad.vue";
+import EditarModalidad from "@/pages/modalidad/EditarModalidad.vue";
+
+import CrearTipoCurso from "@/pages/tipoCurso/CrearTipoCurso.vue";
+import EditarTipoCurso from "@/pages/tipoCurso/EditarTipoCurso.vue";
+
+import CrearAreaCurso from "@/pages/AreaCurso/CrearAreaCurso.vue";
+import EditarAreaCurso from "@/pages/AreaCurso/EditarAreaCurso.vue";
+
+import CrearCurso from "@/pages/Curso/CrearCurso.vue";
+import EditarCurso from "@/pages/Curso/EditarCurso.vue";
+// >>>>>>> 843746fc5bcc7b8a5c2d8390fe583626e389b7d5
 
 import Login from "@/pages/ingreso/Login";
 import Register from "@/pages/ingreso/Register";
@@ -62,6 +76,7 @@ const routes = [
         component: TableList
       },
       {
+// <<<<<<< HEAD
         path: "tipo-cursos",
         name: "tipo-cursos",
         component: TipoCursos
@@ -75,7 +90,52 @@ const routes = [
         path: "cursos",
         name: "cursos",
         component: Cursos
+      },
+      {
+// =======
+        path: "crear-modalidad",
+        name: "CrearModalidad",
+        component: CrearModalidad
+      },
+      {
+        path: "editar-modalidad",
+        name: "EditarModalidad",
+        component: EditarModalidad
+      },
+      {
+        path: "crear-tipocurso",
+        name: "CrearTipoCurso",
+        component: CrearTipoCurso
+      },
+      {
+        path: "editar-tipocurso",
+        name: "EditarTipoCurso",
+        component: EditarTipoCurso
+      },
+      //
+      {
+        path: "crear-areacurso",
+        name: "CrearAreaCurso",
+        component: CrearAreaCurso
+      },
+      {
+        path: "editar-areacurso",
+        name: "EditarAreaCurso",
+        component: EditarAreaCurso
+      },
+      //
+      {
+        path: "crear-curso",
+        name: "CrearCurso",
+        component: CrearCurso
+      },
+      {
+        path: "editar-curso",
+        name: "EditarCurso",
+        component: EditarCurso
+// >>>>>>> 843746fc5bcc7b8a5c2d8390fe583626e389b7d5
       }
+
     ],
     beforeEnter: Guard.auth
   },

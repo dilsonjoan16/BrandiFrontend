@@ -163,11 +163,11 @@ export default {
   },
   methods: {
     async crear(){
-      this.$router.push('/dashboard');
+      this.$router.push('/crear-modalidad');
     },
     async editar(id){
       localStorage.setItem("ref", id)
-      this.$router.push('/dashboard')
+      this.$router.push('/editar-modalidad')
     },
     async eliminar(){
       try{

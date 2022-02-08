@@ -7,11 +7,22 @@
         <sidebar-link to="/area-cursos" name="Area de Cursos" icon="ti-agenda"/>
         <sidebar-link to="/cursos" name="Cursos" icon="ti-write"/>
         <sidebar-link to="/stats" name="User Profile" icon="ti-user"/>
-        <sidebar-link to="/table-list" name="Table List" icon="ti-view-list-alt"/>
+        <!-- <sidebar-link to="/table-list" name="Table List" icon="ti-view-list-alt"/>
         <sidebar-link to="/typography" name="Typography" icon="ti-text"/>
         <sidebar-link to="/icons" name="Icons" icon="ti-pencil-alt2"/>
         <sidebar-link to="/maps" name="Map" icon="ti-map"/>
-        <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
+        <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/> -->
+        <!-- <sidebar-link to="/crear-modalidad" name="Crear Modalidad" icon="ti-pencil-alt2"/>
+        <sidebar-link to="/editar-modalidad" name="Editar Modalidad" icon="ti-pencil-alt2"/>
+        <sidebar-link to="/crear-tipocurso" name="Crear tipo de Curso" icon="ti-pencil-alt2"/>
+        <sidebar-link to="/editar-tipocurso" name="Editar tipo de Curso" icon="ti-pencil-alt2"/>
+
+        <sidebar-link to="/crear-areacurso" name="Crear Area de Curso" icon="ti-pencil-alt2"/>
+        <sidebar-link to="/editar-areacurso" name="Editar Area de Curso" icon="ti-pencil-alt2"/>
+
+        <sidebar-link to="/crear-curso" name="Crear Curso" icon="ti-pencil-alt2"/>
+        <sidebar-link to="/editar-curso" name="Editar Curso" icon="ti-pencil-alt2"/> -->
+
       </template>
       <mobile-menu>
         <li class="nav-item">

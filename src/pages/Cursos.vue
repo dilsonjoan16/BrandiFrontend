@@ -90,11 +90,11 @@ export default {
   },
   methods: {
     async crear(){
-      this.$router.push('/dashboard');
+      this.$router.push('/crear-curso');
     },
     async editar(id){
       localStorage.setItem("ref", id)
-      this.$router.push('/dashboard')
+      this.$router.push('/editar-curso')
     },
     async eliminar(){
       try{
