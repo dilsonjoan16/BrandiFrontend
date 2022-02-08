@@ -46,8 +46,8 @@ const routes = [
         component: ModalidadCursos
       },
       {
-        path: "stats",
-        name: "stats",
+        path: "perfil",
+        name: "perfil",
         component: UserProfile
       },
       {

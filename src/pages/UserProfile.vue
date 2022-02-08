@@ -1,14 +1,14 @@
 <template>
     <div class="row">
-      <div class="col-xl-4 col-lg-5 col-md-6">
-        <user-card>
+      <!-- <div class="col-xl-4 col-lg-5 col-md-6"> -->
+        <!-- <user-card>
 
-        </user-card>
+        </user-card> -->
         <!-- <members-card>
 
         </members-card> -->
-      </div>
-      <div class="col-xl-8 col-lg-7 col-md-6">
+      <!-- </div> -->
+      <div class="col-xl-12 col-lg-12 col-md-12">
         <edit-profile-form>
 
         </edit-profile-form>
@@ -17,32 +17,15 @@
 </template>
 <script>
 import EditProfileForm from "./UserProfile/EditProfileForm.vue";
-import UserCard from "./UserProfile/UserCard.vue";
+// import UserCard from "./UserProfile/UserCard.vue";
 // import MembersCard from "./UserProfile/MembersCard.vue";
 export default {
-  data(){
-    return{
-      token: localStorage.getItem('user_token')
-    }
-  },
   components: {
     EditProfileForm,
-    UserCard,
+    // UserCard,
     // MembersCard
   },
-  mounted(){
-    this.usuario()
-  },
-  methods:{
-    async usuario(){
-      let response = await this.axios.post(`http://127.0.0.1:8000/api/auth/me`,{
-        headers:{
-          "Authorization": `Bearer ${this.token}`
-        }
-      })
-      console.log(response.data);
-    }
-  }
+
 };
 </script>
 <style>

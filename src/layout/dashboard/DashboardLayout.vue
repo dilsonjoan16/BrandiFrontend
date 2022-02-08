@@ -6,7 +6,7 @@
         <sidebar-link to="/tipo-cursos" name="Tipo de Cursos" icon="ti-folder"/>
         <sidebar-link to="/area-cursos" name="Area de Cursos" icon="ti-agenda"/>
         <sidebar-link to="/cursos" name="Cursos" icon="ti-write"/>
-        <sidebar-link to="/stats" name="Usuarios" icon="ti-user"/>
+        <sidebar-link to="/perfil" name="Usuarios" icon="ti-user"/>
          <!-- <sidebar-link to="/table-list" name="Table List" icon="ti-view-list-alt"/> -->
         <!-- <sidebar-link to="/typography" name="Typography" icon="ti-text"/> -->
         <!-- <sidebar-link to="/maps" name="Map" icon="ti-map"/> -->
