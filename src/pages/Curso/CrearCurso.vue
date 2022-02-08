@@ -55,6 +55,18 @@
 
                 <div class="row">
                   <div class="col-md-12">
+                    <fg-input type="text"
+                              label="Precio del Curso"
+                              placeholder="Precio $"
+                              v-model="curso.precio"
+                              id="precio"
+                              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    ></fg-input>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
                     <label for="area">Area del Curso</label>
                      <select
                         name="area"
@@ -83,7 +95,7 @@
 
 <script>
   export default {
-  name: 'CrearCurso',  
+  name: 'CrearCurso',
 
   data() {
     return {
@@ -94,7 +106,8 @@
         nombre: '',
         estado: '',
         descripcion: '',
-        duracion: ''
+        duracion: '',
+        precio: ''
       },
       loader: null,
       loader2: true
@@ -132,6 +145,7 @@
         this.curso.nombre = ''
         this.curso.estado = ''
         this.curso.duracion = ''
+        this.curso.precio = ''
         this.loader = false
         this.loader2 = true
         this.$swal({

@@ -55,7 +55,9 @@
 
           await this.axios.post(`http://127.0.0.1:8000/api/auth/login`, this.login)
           .then(response => {
-            localStorage.setItem('user_token', response.data.token.access_token);
+            localStorage.setItem('user_token', response.data.token.original.access_token);
+            // console.log(response.data.token.original.access_token)
+            // console.log(response.data.usuario.rol)
             if (response.data.usuario.rol == "Admin") {
               this.$router.push('/modalidad-cursos');
             } else {

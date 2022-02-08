@@ -53,6 +53,18 @@
                   </div>
                 </div>
 
+                <div class="row">
+                  <div class="col-md-12">
+                    <fg-input type="text"
+                              label="Precio del Curso"
+                              placeholder="Precio $"
+                              v-model="curso.precio"
+                              id="precio"
+                              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    ></fg-input>
+                  </div>
+                </div>
+
               <div class="row">
                   <div class="col-md-12">
                     <label for="area">Area del Curso</label>
@@ -84,7 +96,7 @@
 
 <script>
   export default {
-  name: 'EditarCurso',  
+  name: 'EditarCurso',
 
   data() {
     return {
@@ -97,7 +109,8 @@
         nombre: '',
         estado: '',
         descripcion: '',
-        duracion: ''
+        duracion: '',
+        precio: ''
       },
       loader: null,
       loader2: true
@@ -130,12 +143,13 @@
         }
       })
       .then(response => {
-        const {area_id,nombre,estado,descripcion,duracion} = response.data.area
+        const {area_id,nombre,estado,descripcion,duracion,precio} = response.data.curso
         this.curso.area_id = area_id
         this.curso.nombre = nombre
         this.curso.estado = estado
         this.curso.descripcion = descripcion
         this.curso.duracion = duracion
+        this.curso.precio = precio
         this.areaActual = response.data.area.tipo_de_curso.nombre
       })
       .catch(error => {
@@ -166,7 +180,7 @@
         });
         this.$router.push('/cursos')
       })
-      .catch(error => {     
+      .catch(error => {
         this.loader = false
         this.loader2 = true
         this.$swal({

@@ -16,12 +16,12 @@
           <li class="nav-item">
             <form @submit.stop.prevent="logout">
             <button class="nav-link btn btn-link" type="submit">
-              <i class="ti-panel"></i>
+              <i class="ti-arrow-circle-left"></i>
               <p>Logout</p>
             </button>
             </form>
           </li>
-          <drop-down class="nav-item"
+          <!-- <drop-down class="nav-item"
                      title="5 Notifications"
                      title-classes="nav-link"
                      icon="ti-bell">
@@ -30,14 +30,14 @@
             <a class="dropdown-item" href="#">Notification 3</a>
             <a class="dropdown-item" href="#">Notification 4</a>
             <a class="dropdown-item" href="#">Another notification</a>
-          </drop-down>
+          </drop-down> -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="ti-settings"></i>
+            <router-link to="/stats" class="nav-link"> 
+              <i class="ti-user"></i>
               <p>
-                Settings
+                Perfil
               </p>
-            </a>
+            </router-link> 
           </li>
         </ul>
       </div>
@@ -78,6 +78,7 @@ export default {
     async logout() {
       localStorage.removeItem('user_token');
       localStorage.removeItem('cod');
+      localStorage.removeItem('ref');
       this.$swal('Salida del sistema exitosa!', 'Usuario deslogueado con exito!', 'OK');
       this.$router.push("/login");
       

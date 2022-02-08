@@ -12,6 +12,7 @@
                 <th>Estado</th>
                 <th>Descripcion</th>
                 <th>Duracion</th>
+                <th>Precio</th>
                 <th>Area del Curso</th>
                 <th>Fecha</th>
                 <th>Crear <span style="cursor: pointer" class="ti-plus" v-on:click.prevent="crear"></span></th>
@@ -25,6 +26,7 @@
                   <td>{{item.estado}}</td>
                   <td>{{item.descripcion}}</td>
                   <td>{{item.duracion}} Hrs</td>
+                  <td>{{item.precio}} $</td>
                   <td>{{item.area_de_curso.nombre}}</td>
                   <td>{{item.created_at.split("T")[0]}}</td>
                   <td>

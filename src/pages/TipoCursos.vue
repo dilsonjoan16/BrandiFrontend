@@ -59,7 +59,7 @@ export default {
         'Authorization': `Bearer ${this.token}`
       }
     }).then((result) => {
-      console.log(result);
+      // console.log(result);
       this.data = result.data.tipoGeneral
     }).catch(error => {
       console.log(error);

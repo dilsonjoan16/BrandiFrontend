@@ -4,9 +4,9 @@
         <user-card>
 
         </user-card>
-        <members-card>
+        <!-- <members-card>
 
-        </members-card>
+        </members-card> -->
       </div>
       <div class="col-xl-8 col-lg-7 col-md-6">
         <edit-profile-form>
@@ -18,12 +18,30 @@
 <script>
 import EditProfileForm from "./UserProfile/EditProfileForm.vue";
 import UserCard from "./UserProfile/UserCard.vue";
-import MembersCard from "./UserProfile/MembersCard.vue";
+// import MembersCard from "./UserProfile/MembersCard.vue";
 export default {
+  data(){
+    return{
+      token: localStorage.getItem('user_token')
+    }
+  },
   components: {
     EditProfileForm,
     UserCard,
-    MembersCard
+    // MembersCard
+  },
+  mounted(){
+    this.usuario()
+  },
+  methods:{
+    async usuario(){
+      let response = await this.axios.post(`http://127.0.0.1:8000/api/auth/me`,{
+        headers:{
+          "Authorization": `Bearer ${this.token}`
+        }
+      })
+      console.log(response.data);
+    }
   }
 };
 </script>
