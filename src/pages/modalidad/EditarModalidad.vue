@@ -96,6 +96,7 @@
               text: 'Modalidad modificada con exito!',
         });
         this.$router.push('/modalidad-cursos');
+        localStorage.removeItem('ref')
       })
       .catch(error => {
         this.loader = false

@@ -32,12 +32,12 @@
             <a class="dropdown-item" href="#">Another notification</a>
           </drop-down> -->
           <li class="nav-item">
-            <router-link to="/stats" class="nav-link"> 
+            <router-link to="/stats" class="nav-link">
               <i class="ti-user"></i>
               <p>
                 Perfil
               </p>
-            </router-link> 
+            </router-link>
           </li>
         </ul>
       </div>
@@ -78,10 +78,11 @@ export default {
     async logout() {
       localStorage.removeItem('user_token');
       localStorage.removeItem('cod');
+      localStorage.removeItem('us')
       localStorage.removeItem('ref');
       this.$swal('Salida del sistema exitosa!', 'Usuario deslogueado con exito!', 'OK');
       this.$router.push("/login");
-      
+
       // try {
       //   let response = await axios.post(`http://127.0.0.1:8000/auth/logout`, {
       //   headers: {

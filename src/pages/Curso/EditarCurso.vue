@@ -179,6 +179,7 @@
               text: 'Curso modificado con exito!',
         });
         this.$router.push('/cursos')
+        localStorage.removeItem('ref')
       })
       .catch(error => {
         this.loader = false

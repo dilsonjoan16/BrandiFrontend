@@ -135,6 +135,7 @@
               text: 'Tipo de Curso modificado con exito!',
         });
         this.$router.push('/tipo-cursos')
+        localStorage.removeItem('ref')
       })
       .catch(error => {
         this.loader = false

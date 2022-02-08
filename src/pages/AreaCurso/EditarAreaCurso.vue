@@ -129,6 +129,7 @@
         this.loader = false
         this.loader2 = true
         this.$router.push('/area-cursos')
+        localStorage.removeItem('ref')
         this.$swal({
               icon: 'success',
               title: 'Modificacion exitosa!',
