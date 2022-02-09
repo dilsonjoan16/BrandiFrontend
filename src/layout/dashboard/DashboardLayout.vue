@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper">
     <side-bar>
-      <template slot="links">
+      <template slot="links" v-if="admin">
         <sidebar-link to="/modalidad-cursos" name="Modalidad de Cursos" icon="ti-receipt"/>
         <sidebar-link to="/tipo-cursos" name="Tipo de Cursos" icon="ti-folder"/>
         <sidebar-link to="/area-cursos" name="Area de Cursos" icon="ti-agenda"/>
         <sidebar-link to="/cursos" name="Cursos" icon="ti-write"/>
-        <sidebar-link to="/perfil" name="Usuarios" icon="ti-user"/>
+        <sidebar-link to="/usuarios" name="Usuarios" icon="ti-user"/>
          <!-- <sidebar-link to="/table-list" name="Table List" icon="ti-view-list-alt"/> -->
         <!-- <sidebar-link to="/typography" name="Typography" icon="ti-text"/> -->
         <!-- <sidebar-link to="/maps" name="Map" icon="ti-map"/> -->
@@ -24,6 +24,10 @@
         <sidebar-link to="/editar-curso" name="Editar Curso" icon="ti-pencil-alt2"/> -->
 
       </template>
+      <template slot="links" v-if="comun">
+        <sidebar-link to="/" name="Modalidad de Cursos" icon="ti-receipt"/>
+      </template>
+      <!-- //////////////////////////////////////////////////////////////////////////////// -->
       <mobile-menu>
         <li class="nav-item" v-on:click.prevent="logout">
           <a class="nav-link">
@@ -69,16 +73,44 @@ import ContentFooter from "./ContentFooter.vue";
 import DashboardContent from "./Content.vue";
 import MobileMenu from "./MobileMenu";
 export default {
+  data(){
+    return{
+      admin: null,
+      comun: null,
+      id: localStorage.getItem('us'),
+      token: localStorage.getItem('user_token')
+    }
+  },
   components: {
     TopNavbar,
     ContentFooter,
     DashboardContent,
     MobileMenu
   },
+  mounted(){
+    this.User()
+  },
   methods: {
     toggleSidebar() {
       if (this.$sidebar.showSidebar) {
         this.$sidebar.displaySidebar(false);
+      }
+    },
+    async User(){
+      let response = await this.axios.get(`http://127.0.0.1:8000/api/auth/perfil/${this.id}`,{
+        headers:{
+          'Authorization': `Bearer ${this.token}`
+        }
+      })
+      console.log(response.data)
+      if (response.data.usuario.rol == "Admin") {
+        this.admin = true
+        this.comun = false
+      } else {
+        if (response.data.usuario.rol == "Comun") {
+          this.admin = false
+          this.comun = true
+        }
       }
     },
     async logout() {

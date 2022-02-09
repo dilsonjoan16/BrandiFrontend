@@ -15,6 +15,7 @@ import TableList from "@/pages/TableList.vue";
 import TipoCursos from "@/pages/TipoCursos.vue";
 import AreaCursos from "@/pages/AreaCursos.vue";
 import Cursos from "@/pages/Cursos.vue";
+import Usuarios from "@/pages/Usuarios.vue";
 // =======
 import CrearModalidad from "@/pages/modalidad/CrearModalidad.vue";
 import EditarModalidad from "@/pages/modalidad/EditarModalidad.vue";
@@ -27,6 +28,10 @@ import EditarAreaCurso from "@/pages/AreaCurso/EditarAreaCurso.vue";
 
 import CrearCurso from "@/pages/Curso/CrearCurso.vue";
 import EditarCurso from "@/pages/Curso/EditarCurso.vue";
+
+import CrearUsuario from "@/pages/Usuarios/CrearUsuario.vue";
+import EditarUsuario from "@/pages/Usuarios/EditarUsuario.vue";
+
 // >>>>>>> 843746fc5bcc7b8a5c2d8390fe583626e389b7d5
 
 import Login from "@/pages/ingreso/Login";
@@ -76,7 +81,6 @@ const routes = [
         component: TableList
       },
       {
-// <<<<<<< HEAD
         path: "tipo-cursos",
         name: "tipo-cursos",
         component: TipoCursos
@@ -92,7 +96,11 @@ const routes = [
         component: Cursos
       },
       {
-// =======
+        path: "usuarios",
+        name: "usuarios",
+        component: Usuarios
+      },
+      {
         path: "crear-modalidad",
         name: "CrearModalidad",
         component: CrearModalidad
@@ -112,7 +120,6 @@ const routes = [
         name: "EditarTipoCurso",
         component: EditarTipoCurso
       },
-      //
       {
         path: "crear-areacurso",
         name: "CrearAreaCurso",
@@ -123,7 +130,6 @@ const routes = [
         name: "EditarAreaCurso",
         component: EditarAreaCurso
       },
-      //
       {
         path: "crear-curso",
         name: "CrearCurso",
@@ -133,8 +139,17 @@ const routes = [
         path: "editar-curso",
         name: "EditarCurso",
         component: EditarCurso
-// >>>>>>> 843746fc5bcc7b8a5c2d8390fe583626e389b7d5
-      }
+      },
+      {
+        path: "crear-usuario",
+        name: "CrearUsuario",
+        component: CrearUsuario
+      },
+      {
+        path: "editar-usuario",
+        name: "EditarUsuario",
+        component: EditarUsuario
+      },
 
     ],
     beforeEnter: Guard.auth

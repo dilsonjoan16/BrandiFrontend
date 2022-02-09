@@ -10,6 +10,8 @@
                 <!-- <th v-for="column in columns" :key="column">{{column}}</th> -->
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
                 <th>Estado</th>
                 <th>Fecha</th>
                 <th>Crear <span style="cursor: pointer" class="ti-plus" v-on:click.prevent="crear"></span></th>
@@ -19,7 +21,9 @@
               <tr v-for="(item, index) in data" :key="index">
                 <slot :row="item">
                   <td>{{item.id}}</td>
-                  <td>{{item.nombre}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.rol}}</td>
                   <td>{{item.estado}}</td>
                   <td>{{item.created_at.split("T")[0]}}</td>
                   <td>
@@ -38,9 +42,9 @@
               </tbody>
             </table>
           </div>
-          <div class="spinner my-auto mx-auto" v-if="loader"></div>
-        </card>
-      </div>
+        <div class="spinner my-auto mx-auto" v-if="loader"></div>
+      </card>
+    </div>
     <!--Stats cards-->
     <!-- <div class="row">
       <div class="col-md-6 col-xl-3" v-for="stats in statsCards" :key="stats.title">
@@ -115,7 +119,7 @@
 // <script>
 // import { StatsCard, ChartCard } from "@/components/index";
 // import Chartist from 'chartist';
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   components: {
     // StatsCard,
@@ -131,13 +135,14 @@ export default {
       };
     },
   created(){
-    axios.get(`http://127.0.0.1:8000/api/auth/modalidad/cursos`,{
+    this.axios.get(`http://127.0.0.1:8000/api/auth/usuarios`,{
       headers:{
         'Authorization': `Bearer ${this.token}`
       }
     }).then((result) => {
       // console.log(result);
-      this.data = result.data.modalidadGeneral
+      this.data = result.data.user
+      // console.log(this.data);
     }).catch(error => {
       // console.log(error);
     })
@@ -165,28 +170,31 @@ export default {
   },
   methods: {
     async crear(){
-      this.$router.push('/crear-modalidad');
+      this.$router.push('/crear-usuario');
     },
     async editar(id){
       localStorage.setItem("ref", id)
-      this.$router.push('/editar-modalidad')
+      this.$router.push('/editar-usuario')
     },
     async eliminar(id){
+      this.loader = true
       try{
-      let response = await axios.delete(`http://127.0.0.1:8000/api/auth/modalidad/cursos/eliminar/${id}`,{
+      let response = await this.axios.delete(`http://127.0.0.1:8000/api/auth/usuario/eliminar/${id}`,{
         headers:{
           'Authorization': `Bearer ${this.token}`
         }
       })
       if (response.status == 200) {
         this.$swal({
-              icon: 'success',
-              title: 'Modalidad desactivada con exito!',
-              text: 'La modalidad seleccionada fue desactivada con exito! Ya no sera renderizada al publico hasta su proxima activacion',
+          icon: 'success',
+              title: 'Usuario desactivado con exito!',
+              text: 'El usuario seleccionado fue desactivado con exito! Ya no sera admitido en el sistema hasta su proxima activacion',
           })
+          this.loader = false
       }
       }catch(error){
         this.$swal({title: 'Ocurrio un error!',text: 'Valide la accion nuevamente!',icon: 'info'})
+        this.loader = false
       }
     },
     hasValue(item, column) {

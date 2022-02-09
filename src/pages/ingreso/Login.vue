@@ -60,9 +60,43 @@
             // console.log(response.data.token.original.access_token)
             // console.log(response.data.usuario.rol)
             if (response.data.usuario.rol == "Admin") {
+              if (response.data.usuario.estado == "ACTIVO") {
               this.$router.push('/modalidad-cursos');
+              } else {
+                 this.$swal({
+                icon: 'info',
+                title: 'Oops...',
+                text: 'Tu usuario posee un estado de INACTIVO! Si deseas ingresar comunicate con algun administrador para reactivar tu usuario',
+                })
+                this.loader = false
+                this.loader2 = true
+              }
             } else {
+              if (response.data.usuario.rol == "Comun") {
+                if (response.data.usuario.estado == "ACTIVO") {
               // this.$router.push('/')
+                } else {
+                  this.$swal({
+                icon: 'info',
+                title: 'Oops...',
+                text: 'Tu usuario posee un estado de INACTIVO! Si deseas ingresar comunicate con algun administrador para reactivar tu usuario',
+                })
+                this.loader = false
+                this.loader2 = true
+                }
+              } else {
+                if (response.data.usuario.rol !== "Admin" && response.data.usuario.rol !== "Comun") {
+                  this.$swal({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Tu usuario posee un Rol fuera de los permitidos! No aceptamos intrusos como tu. En caso de ser error, pide a algun administrador que resuelva tu caso de Rol',
+                })
+                this.loader = false
+                this.loader2 = true
+                } else {
+
+                }
+              }
             }
           })
           .catch(error => {
@@ -85,7 +119,7 @@
 	};
 </script>
 
-<style>
+<style scoped>
 	.form-signin {
   width: 100%;
   max-width: 330px;

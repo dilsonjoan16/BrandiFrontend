@@ -9,9 +9,9 @@
         </ul>
       </nav>
       <div class="copyright d-flex flex-wrap">
-        <i>
+        <!-- <i> -->
           Copyright © || All reserved 2022 || Brandi Technology Inc.
-        </i>
+        <!-- </i> -->
         <!-- &copy; Coded with
         <i class="fa fa-heart heart"></i> by
         <a href="https://github.com/cristijora" target="_blank"> &nbsp; Cristi Jora.</a>&nbsp;
