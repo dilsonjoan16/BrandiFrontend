@@ -100,11 +100,12 @@
 
   data() {
     return {
+      token: localStorage.getItem('user_token'),
+      id: localStorage.getItem('ref'),
+      areaActual: null,
+      areaCursos: [],
+
       curso: {
-        token: localStorage.getItem('user_token'),
-        id: localStorage.getItem('ref'),
-        areaActual: null,
-        areaCursos: [],
         area_id: Number,
         nombre: '',
         estado: '',
@@ -150,7 +151,7 @@
         this.curso.descripcion = descripcion
         this.curso.duracion = duracion
         this.curso.precio = precio
-        this.areaActual = response.data.area.tipo_de_curso.nombre
+        this.areaActual = response.data.curso.area_de_curso.nombre
       })
       .catch(error => {
         console.log(error)

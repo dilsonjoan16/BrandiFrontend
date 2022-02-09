@@ -98,9 +98,9 @@ export default {
       localStorage.setItem("ref", id)
       this.$router.push('/editar-curso')
     },
-    async eliminar(){
+    async eliminar(id){
       try{
-      let response = await axios.delete(`http://127.0.0.1:8000/api/auth/modalidad/cursos/eliminar/${id}`,{
+      let response = await axios.delete(`http://127.0.0.1:8000/api/auth/cursos/eliminar/${id}`,{
         headers:{
           'Authorization': `Bearer ${this.token}`
         }

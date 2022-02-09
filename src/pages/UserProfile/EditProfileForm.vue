@@ -118,7 +118,8 @@
                    id="password"
                    minlength="6"
                    maxlength="12"
-                   placeholder="Password">
+                   placeholder="Password"
+                   v-model="user.password">
           </div>
         <br>
         <!-- <div class="row">
@@ -132,7 +133,7 @@
         </div> -->
           <div class="col-md-12 col-lg-10 mx-auto">
             <label for="estado">Estado del usuario</label>
-            <select name="estado" id="estado" class="form-control">
+            <select  v-model="user.estado" name="estado" id="estado" class="form-control">
               <option disabled value="">Estado Actual {{user.estado}}</option>
               <option value="">ACTIVO</option>
               <option value="">INACTIVO</option>
@@ -185,11 +186,11 @@ export default {
       this.user.email = response.data.usuario.email
       this.user.rol = response.data.usuario.rol
       this.user.estado = response.data.usuario.estado
-      console.log(response.data.usuario);
+      // console.log(response.data.usuario);
 
     },
     async updateProfile() {
-      console.log(this.user);
+      // console.log(this.user);
       this.loader = true
       this.loader2 = false
 
@@ -229,7 +230,7 @@ export default {
           "Authorization": `Bearer ${this.token}`
           }
         })
-        console.log(response.data);
+        // console.log(response.data);
         this.$swal({
               icon: 'success',
               title: 'Modificacion exitosa!',
