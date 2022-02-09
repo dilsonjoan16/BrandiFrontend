@@ -11,7 +11,7 @@
       <div class="logo">
         <a href="#" class="simple-text">
             <div class="logo-img">
-                <img src="@/assets/img/vue-logo.png" alt="">
+                <img src="@/assets/img/logo.png" alt="" class="imago">
             </div>
           {{title}}
         </a>
@@ -133,4 +133,8 @@ export default {
 };
 </script>
 <style>
+.imago{
+  width: 200vh;
+  height: 80%;
+}
 </style>

@@ -40,6 +40,7 @@
               </tbody>
             </table>
           </div>
+          <div class="spinner my-auto mx-auto" v-if="loader"></div>
         </card>
       </div>
   </div>
@@ -54,6 +55,7 @@ export default {
   },
     data() {
       return {
+      loader:null,
       token: localStorage.getItem('user_token'),
       columns: ["Id","Nombre","Estado","Fecha","",""],
       data: []
@@ -126,5 +128,24 @@ export default {
 
 };
 </script>
-<style>
+<style scoped>
+.spinner {
+  border: 4px solid #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #212120;
+
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 </style>
