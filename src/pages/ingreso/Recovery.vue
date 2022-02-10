@@ -6,12 +6,11 @@
 
       <label for="inputEmail" class="sr-only">Email address</label>
       <input v-model="login.email" type="email" id="inputEmail" class="form-control text-white rounded" placeholder="Ingrese el email" maxlength="100" required autocomplete="off" autofocus>
-
-      <p v-if="error" class="error">El email ingresado no concuerda con alguno en base de datos.</p>
       <br>
+      <p v-if="error" class="error text-white">El email ingresado no concuerda con alguno en base de datos.</p>
       <button class="btn btn-lg btn-outline-light btn-block" type="submit" v-if="loader2">Recuperar</button>
       <br>
-      <hr>
+      <hr class="division" v-if="loader">
     <div class="spinner my-auto mx-auto" v-if="loader"></div>
      </div>
     </form>
@@ -113,9 +112,10 @@
   border-top-right-radius: 0;
 }
 .contenedor{
-  background: #ff00cc;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #212120 !important;
+  /*background: #ff00cc; */  /* fallback for old browsers */
+/* background: -webkit-linear-gradient(to right, #333399, #ff00cc);  */ /*Chrome 10-25, Safari 5.1-6 */
+/* background: linear-gradient(to right, #333399, #ff00cc); */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 height: 100vh;
 width: 100%;
 }
@@ -141,12 +141,16 @@ background: none;
   text-decoration: none;
 }
 
+.division{
+  background-color: white !important;
+}
+
 .spinner {
   border: 4px solid rgba(0, 0, 0, 0.1);
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border-left-color: #ff00cc;
+  border-left-color: #ffffff;
 
   animation: spin 1s ease infinite;
 }

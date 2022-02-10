@@ -10,11 +10,11 @@
       <label for="inputPassword" class="sr-only">Password</label>
       <input v-model="login.password" type="password" id="inputPassword" class="form-control text-white" placeholder="Ingrese el password" minlength="6" maxlength="12" autocomplete="off" required>
 
-      <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+      <p v-if="error" class="error text-white">Has introducido mal el email o la contraseña.</p>
 
       <button class="btn btn-lg btn-outline-light btn-block" type="submit" v-if="loader2">Ingresar</button>
       <br>
-      <hr>
+      <hr class="division">
     <div class="spinner my-auto mx-auto" v-if="loader"></div>
       <router-link to="/register" v-if="loader2" class="text-white" id="link">
         Registrarme
@@ -74,7 +74,7 @@
             } else {
               if (response.data.usuario.rol == "Comun") {
                 if (response.data.usuario.estado == "ACTIVO") {
-              // this.$router.push('/')
+              this.$router.push('/modulo-modalidad-comun')
                 } else {
                   this.$swal({
                 icon: 'info',
@@ -150,9 +150,9 @@
   border-top-right-radius: 0;
 }
 .contenedor{
-background: #ff00cc;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #212120 !important;
+/* background: -webkit-linear-gradient(to right, #ffffff, #F4F3EF) !important; */
+/* background: linear-gradient(to right, #ffffff, #F4F3EF) !important; */
 height: 100vh;
 width: 100%;
 }
@@ -177,13 +177,17 @@ background: none;
 #link{
   text-decoration: none;
 }
+.division {
+    background-color: white !important;
+
+  }
 
 .spinner {
   border: 4px solid rgba(0, 0, 0, 0.1);
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border-left-color: #ff00cc;
+  border-left-color: #ffffff;
 
   animation: spin 1s ease infinite;
 }
@@ -197,4 +201,5 @@ background: none;
     transform: rotate(360deg);
   }
 }
+
 </style>

@@ -25,7 +25,7 @@
 
       </template>
       <template slot="links" v-if="comun">
-        <sidebar-link to="/" name="Modalidad de Cursos" icon="ti-receipt"/>
+        <sidebar-link to="/modulo-modalidad-comun" name="Modalidad de Cursos" icon="ti-receipt"/>
       </template>
       <!-- //////////////////////////////////////////////////////////////////////////////// -->
       <mobile-menu>

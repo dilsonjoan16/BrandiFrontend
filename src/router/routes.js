@@ -16,6 +16,11 @@ import TipoCursos from "@/pages/TipoCursos.vue";
 import AreaCursos from "@/pages/AreaCursos.vue";
 import Cursos from "@/pages/Cursos.vue";
 import Usuarios from "@/pages/Usuarios.vue";
+
+import ModuloModalidadComun from "@/pages/ModuloComun/ModuloModalidadComun.vue";
+import ModuloTipoComun from "@/pages/ModuloComun/ModuloTipoComun.vue";
+import ModuloAreaComun from "@/pages/ModuloComun/ModuloAreaComun.vue";
+import ModuloCursoComun from "@/pages/ModuloComun/ModuloCursoComun.vue";
 // =======
 import CrearModalidad from "@/pages/modalidad/CrearModalidad.vue";
 import EditarModalidad from "@/pages/modalidad/EditarModalidad.vue";
@@ -149,6 +154,26 @@ const routes = [
         path: "editar-usuario",
         name: "EditarUsuario",
         component: EditarUsuario
+      },
+      {
+        path: "modulo-modalidad-comun",
+        name: "ModuloModalidadComun",
+        component: ModuloModalidadComun
+      },
+      {
+        path: "modulo-tipo-comun",
+        name: "ModuloTipoComun",
+        component: ModuloTipoComun
+      },
+      {
+        path: "modulo-area-comun",
+        name: "ModuloAreaComun",
+        component: ModuloAreaComun
+      },
+      {
+        path: "modulo-curso-comun",
+        name: "ModuloCursoComun",
+        component: ModuloCursoComun
       },
 
     ],

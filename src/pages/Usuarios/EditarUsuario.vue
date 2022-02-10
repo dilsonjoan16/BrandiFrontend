@@ -112,6 +112,10 @@
         }
       })
       console.log(response.data.usuario);
+      this.user.name = response.data.usuario.name
+      this.user.email = response.data.usuario.email
+      this.user.rol = response.data.usuario.rol
+      this.user.estado = response.data.usuario.estado
     },
 
     async updateProfile() {
@@ -129,12 +133,13 @@
           "Authorization": `Bearer ${this.token}`
           }
         })
-        console.log(response.data);
+        // console.log(response.data);
         this.$swal({
               icon: 'success',
               title: 'Modificacion exitosa!',
               text: 'Perfil de usuario modificado con exito!',
         });
+        this.$router.push('/usuarios')
         this.loader = false
         this.loader2 = true
         } catch (error) {
