@@ -44,12 +44,13 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <fg-input type="number"
+                    <fg-input type="text"
                               label="Duracion del Curso"
                               placeholder="Duracion"
                               v-model="curso.duracion"
-                              id="inputEstado">
-                    </fg-input>
+                              id="inputEstado"
+                              onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                    ></fg-input>
                   </div>
                 </div>
 
@@ -106,8 +107,8 @@
         nombre: '',
         estado: '',
         descripcion: '',
-        duracion: Number,
-        precio: Number
+        duracion: '',
+        precio: ''
       },
       loader: null,
       loader2: true
