@@ -32,8 +32,11 @@
                   <td>{{d.precio}} $</td>
                   <td>{{d.area_de_curso.nombre}}</td>
                   <!-- <td>{{item.created_at.split("T")[0]}}</td> -->
-                  <td class="icon-container">
-                    <span class="ti-shopping-cart-full" style="cursor: pointer"></span>
+
+                  <!-- <td class="icon-container"> -->
+                  <td>
+                    <span class="ti-shopping-cart-full" style="cursor: pointer" v-if="loader2" v-on:click.prevent="comprar(d.id)"></span>
+                    <div class="spinner my-auto mx-auto" v-if="loader"></div>
                     <!-- <div > -->
                       <!-- <span class="ti-pencil mx-3" style="cursor: pointer" v-on:click.prevent="editar(item.id)"></span> -->
                       <!-- <span class="ti-na mx-3" style="cursor: pointer" v-on:click.prevent="eliminar(item.id)"></span> -->
@@ -44,12 +47,11 @@
               </tbody>
             </table>
           </div>
-          <div class="spinner my-auto mx-auto" v-if="loader"></div>
         </card>
       </div>
   </div>
 </template>
-// <script>
+<script>
 
 import axios from 'axios'
 export default {
@@ -60,7 +62,9 @@ export default {
     data() {
       return {
       loader:null,
+      loader2: true,
       id: localStorage.getItem('a'),
+      us: localStorage.getItem('us'),
       token: localStorage.getItem('user_token'),
       columns: ["Id","Nombre","Estado","Fecha","",""],
       data: []
@@ -128,6 +132,49 @@ export default {
     async volver(){
       this.$router.push('/modulo-area-comun')
     },
+    async comprar(id){
+      this.$swal({
+      title: 'Desea confirmar la compra de este articulo?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      denyButtonText: `Rechazar`,
+      width: 600,
+      padding: '3em',
+      color: '#716add',
+      background: '#fff url(/images/trees.png)'
+    }).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      this.loader = true
+      this.loader2 = false
+      try {
+        
+      this.axios.get(`http://127.0.0.1:8000/api/auth/cursos/compra/${id}/${this.us}`,{
+        headers:{
+          "Authorization": `Bearer ${this.token}`
+        }
+      }).then(response => {
+      if (response.status == 200) {
+      this.loader = false
+      this.loader2 = true
+      this.$swal('Compra confirmada!', 'La informacion del producto fue enviada a su correo! Solo queda que algun Administrador verifique el pago y su producto estara listo en nuestra Sucursal mas cercana!', 'success')
+      } else {
+      this.loader = false
+      this.loader2 = true
+      this.$swal('Ocurrio un error inesperado!', 'Se le recomienda probar nuevamente, en caso se persistir el problema debe reportarlo a algun administrador', 'info')
+      }
+      })
+      } catch (error) {
+      this.loader = false
+      this.loader2 = true
+      this.$swal('Ocurrio un error inesperado!', 'Se le recomienda probar nuevamente, en caso se persistir el problema debe reportarlo a algun administrador', 'info')
+      }
+    } else if (result.isDenied) {
+      this.$swal('Accion de compra rechazada con exito!', '', 'info')
+    }
+    })
+  },
     hasValue(item, column) {
       return item[column.toLowerCase()] !== "undefined";
     },

@@ -118,6 +118,11 @@ export default {
       localStorage.removeItem('cod');
       localStorage.removeItem('us')
       localStorage.removeItem('ref');
+      localStorage.removeItem('m');
+      localStorage.removeItem('a');
+      localStorage.removeItem('c');
+      localStorage.removeItem('t');
+
       this.$swal('Salida del sistema exitosa!', 'Usuario deslogueado con exito!', 'OK');
       this.$router.push("/login");
     }
