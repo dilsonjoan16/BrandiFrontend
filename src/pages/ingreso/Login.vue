@@ -57,6 +57,7 @@
           .then(response => {
             localStorage.setItem('user_token', response.data.token.original.access_token);
             localStorage.setItem('us', response.data.usuario.id);
+            localStorage.setItem('rol', response.data.usuario.rol);
             // console.log(response.data.token.original.access_token)
             // console.log(response.data.usuario.rol)
             if (response.data.usuario.rol == "Admin") {

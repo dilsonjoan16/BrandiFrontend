@@ -53,7 +53,8 @@ const routes = [
       {
         path: "modalidad-cursos",
         name: "modalidad-cursos",
-        component: ModalidadCursos
+        component: ModalidadCursos,
+        beforeEnter: Guard.rolC
       },
       {
         path: "perfil",
@@ -88,92 +89,110 @@ const routes = [
       {
         path: "tipo-cursos",
         name: "tipo-cursos",
-        component: TipoCursos
+        component: TipoCursos,
+        beforeEnter: Guard.rolC
       },
       {
         path: "area-cursos",
         name: "area-cursos",
-        component: AreaCursos
+        component: AreaCursos,
+        beforeEnter: Guard.rolC
       },
       {
         path: "cursos",
         name: "cursos",
-        component: Cursos
+        component: Cursos,
+        beforeEnter: Guard.rolC
       },
       {
         path: "usuarios",
         name: "usuarios",
-        component: Usuarios
+        component: Usuarios,
+        beforeEnter: Guard.rolC
       },
       {
         path: "crear-modalidad",
         name: "CrearModalidad",
-        component: CrearModalidad
+        component: CrearModalidad,
+        beforeEnter: Guard.rolC
       },
       {
         path: "editar-modalidad",
         name: "EditarModalidad",
-        component: EditarModalidad
+        component: EditarModalidad,
+        beforeEnter: Guard.rolC
       },
       {
         path: "crear-tipocurso",
         name: "CrearTipoCurso",
-        component: CrearTipoCurso
+        component: CrearTipoCurso,
+        beforeEnter: Guard.rolC
       },
       {
         path: "editar-tipocurso",
         name: "EditarTipoCurso",
-        component: EditarTipoCurso
+        component: EditarTipoCurso,
+        beforeEnter: Guard.rolC
       },
       {
         path: "crear-areacurso",
         name: "CrearAreaCurso",
-        component: CrearAreaCurso
+        component: CrearAreaCurso,
+        beforeEnter: Guard.rolC
       },
       {
         path: "editar-areacurso",
         name: "EditarAreaCurso",
-        component: EditarAreaCurso
+        component: EditarAreaCurso,
+        beforeEnter: Guard.rolC
       },
       {
         path: "crear-curso",
         name: "CrearCurso",
-        component: CrearCurso
+        component: CrearCurso,
+        beforeEnter: Guard.rolC
       },
       {
         path: "editar-curso",
         name: "EditarCurso",
-        component: EditarCurso
+        component: EditarCurso,
+        beforeEnter: Guard.rolC
       },
       {
         path: "crear-usuario",
         name: "CrearUsuario",
-        component: CrearUsuario
+        component: CrearUsuario,
+        beforeEnter: Guard.rolC
       },
       {
         path: "editar-usuario",
         name: "EditarUsuario",
-        component: EditarUsuario
+        component: EditarUsuario,
+        beforeEnter: Guard.rolC
       },
       {
         path: "modulo-modalidad-comun",
         name: "ModuloModalidadComun",
-        component: ModuloModalidadComun
+        component: ModuloModalidadComun,
+        beforeEnter: Guard.rolA
       },
       {
         path: "modulo-tipo-comun",
         name: "ModuloTipoComun",
-        component: ModuloTipoComun
+        component: ModuloTipoComun,
+        beforeEnter: Guard.rolA
       },
       {
         path: "modulo-area-comun",
         name: "ModuloAreaComun",
-        component: ModuloAreaComun
+        component: ModuloAreaComun,
+        beforeEnter: Guard.rolA
       },
       {
         path: "modulo-curso-comun",
         name: "ModuloCursoComun",
-        component: ModuloCursoComun
+        component: ModuloCursoComun,
+        beforeEnter: Guard.rolA
       },
 
     ],
