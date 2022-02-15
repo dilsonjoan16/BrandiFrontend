@@ -18,12 +18,16 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <fg-input type="text"
-                              label="Estado del Curso"
-                              placeholder="Estado"
-                              v-model="curso.estado"
-                              id="inputEstado">
-                    </fg-input>
+                    <label for="Estado">Estado del Curso</label>
+                    <select
+                      name="Estado"
+                      id="Estado"
+                      class="form-control"
+                      v-model="curso.estado">
+                      <option disabled value="">Seleccione algun Estado</option>
+                      <option value="ACTIVO">Activo</option>
+                      <option value="INACTIVO">Inactivo</option>
+                      </select>
                   </div>
                 </div>
 
@@ -33,6 +37,7 @@
                     <textarea
                       name="descripcion"
                       id="descripcion"
+                      class="form-control"
                       cols="30"
                       rows="1"
                       placeholder="Descripcion"
@@ -200,11 +205,11 @@
 
 <style>
   .spinner {
-  border: 4px solid #75c7ff;
+  border: 4px solid #ffffff;
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border-left-color: #75c7ff;
+  border-left-color: #212120;
 
   animation: spin 1s ease infinite;
 }
