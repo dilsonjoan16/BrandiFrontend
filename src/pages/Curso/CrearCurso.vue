@@ -125,7 +125,7 @@
   methods: {
 
   async AreaCursos(){
-     let response = await this.axios.get(`http://127.0.0.1:8000/api/auth/area/cursos`, {
+     let response = await this.axios.get(`https://branditechnology.herokuapp.com/api/auth/area/cursos`, {
         headers:{
           "Authorization": `Bearer ${this.token}`
         }
@@ -145,7 +145,7 @@
             }
       };
 
-      await this.axios.post('http://127.0.0.1:8000/api/auth/cursos/crear',this.curso, config)
+      await this.axios.post('https://branditechnology.herokuapp.com/api/auth/cursos/crear',this.curso, config)
       .then(response => {
         this.curso.area_id = ''
         this.curso.nombre = ''

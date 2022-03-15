@@ -106,7 +106,7 @@
   methods: {
     async MostrarUsuario()
     {
-      let response = await this.axios.get(`http://127.0.0.1:8000/api/auth/perfil/${this.id}`,{
+      let response = await this.axios.get(`https://branditechnology.herokuapp.com/api/auth/perfil/${this.id}`,{
         headers:{
           "Authorization": `Bearer ${this.token}`
         }
@@ -128,7 +128,7 @@
 
         try {
           console.log(this.user);
-          let response = await this.axios.put(`http://127.0.0.1:8000/api/auth/usuario/modificar/admin/${this.id}`,this.user,{
+          let response = await this.axios.put(`https://branditechnology.herokuapp.com/api/auth/usuario/modificar/admin/${this.id}`,this.user,{
           headers:{
           "Authorization": `Bearer ${this.token}`
           }
@@ -155,7 +155,7 @@
 
         if (regla2.test(this.user.password)) {
           try {
-          let response = await this.axios.put(`http://127.0.0.1:8000/api/auth/usuario/modificar/admin/${this.id}`,this.user,{
+          let response = await this.axios.put(`https://branditechnology.herokuapp.com/api/auth/usuario/modificar/admin/${this.id}`,this.user,{
           headers:{
           "Authorization": `Bearer ${this.token}`
           }

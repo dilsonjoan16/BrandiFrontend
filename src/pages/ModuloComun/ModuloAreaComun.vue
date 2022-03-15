@@ -157,7 +157,7 @@ export default {
     },
   created(){
     localStorage.removeItem('a')
-    axios.get(`http://127.0.0.1:8000/api/auth/tipo/cursos/ver/${this.id}`,{
+    axios.get(`https://branditechnology.herokuapp.com/api/auth/tipo/cursos/ver/${this.id}`,{
       headers:{
         'Authorization': `Bearer ${this.token}`
       }

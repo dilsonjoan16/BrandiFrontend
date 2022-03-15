@@ -131,7 +131,7 @@ export default {
       };
     },
   created(){
-    axios.get(`http://127.0.0.1:8000/api/auth/modalidad/cursos`,{
+    axios.get(`https://branditechnology.herokuapp.com/api/auth/modalidad/cursos`,{
       headers:{
         'Authorization': `Bearer ${this.token}`
       }
@@ -173,7 +173,7 @@ export default {
     },
     async eliminar(id){
       try{
-      let response = await axios.delete(`http://127.0.0.1:8000/api/auth/modalidad/cursos/eliminar/${id}`,{
+      let response = await axios.delete(`https://limitless-inlet-37594.herokuapp.com/api/auth/modalidad/cursos/eliminar/${id}`,{
         headers:{
           'Authorization': `Bearer ${this.token}`
         }

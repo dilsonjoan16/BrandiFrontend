@@ -83,7 +83,7 @@
   methods: {
 
     async TipoCursos(){
-     let response = await this.axios.get(`http://127.0.0.1:8000/api/auth/tipo/cursos`, {
+     let response = await this.axios.get(`https://branditechnology.herokuapp.com/api/auth/tipo/cursos`, {
         headers:{
           "Authorization": `Bearer ${this.token}`
         }
@@ -103,7 +103,7 @@
             }
       };
 
-      await this.axios.post('http://127.0.0.1:8000/api/auth/area/cursos/crear',this.area, config)
+      await this.axios.post('https://branditechnology.herokuapp.com/api/auth/area/cursos/crear',this.area, config)
       .then(response => {
         this.area.tipo_id = ''
         this.area.nombre = ''

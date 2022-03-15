@@ -132,7 +132,7 @@
   methods: {
 
     async AreaCursos(){
-      let response = await this.axios.get(`http://127.0.0.1:8000/api/auth/area/cursos`, {
+      let response = await this.axios.get(`https://branditechnology.herokuapp.com/api/auth/area/cursos`, {
         headers:{
           "Authorization": `Bearer ${this.token}`
         }
@@ -144,7 +144,7 @@
     //funcion para mostrar en la vista los datos del curso
     async MostrarCurso() {
       //hay que pasarle la ruta con get
-      await this.axios.get(`http://127.0.0.1:8000/api/auth/cursos/ver/${this.id}`,{
+      await this.axios.get(`https://branditechnology.herokuapp.com/api/auth/cursos/ver/${this.id}`,{
         headers:{
           "Authorization": `Bearer ${this.token}`
         }
@@ -176,7 +176,7 @@
       };
 
       //hay que pasarle la ruta con el id
-      await this.axios.put(`http://127.0.0.1:8000/api/auth/cursos/modificar/${this.id}`,this.curso, config)
+      await this.axios.put(`https://branditechnology.herokuapp.com/api/auth/cursos/modificar/${this.id}`,this.curso, config)
       .then(response => {
         this.loader = false
         this.loader2 = true

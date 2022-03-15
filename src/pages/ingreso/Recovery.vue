@@ -41,7 +41,7 @@
         this.loader = true
         this.loader2 = false
 
-          await this.axios.post(`http://127.0.0.1:8000/api/auth/recovery`, this.login)
+          await this.axios.post(`https://branditechnology.herokuapp.com/api/auth/recovery`, this.login)
           .then(response => {
             if (response.status == 200) {
             this.$swal({

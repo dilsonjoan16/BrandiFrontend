@@ -109,7 +109,7 @@
       };
       const regla2 = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,12}$/;
       if (regla2.test(this.user.password)) {
-        await this.axios.post('http://127.0.0.1:8000/api/auth/usuario/crear',this.user, config)
+        await this.axios.post('https://branditechnology.herokuapp.com/api/auth/usuario/crear',this.user, config)
         .then(response => {
           this.user.name = ''
           this.user.email = ''

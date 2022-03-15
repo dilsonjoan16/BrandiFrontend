@@ -135,7 +135,7 @@ export default {
       };
     },
   created(){
-    this.axios.get(`http://127.0.0.1:8000/api/auth/usuarios`,{
+    this.axios.get(`https://branditechnology.herokuapp.com/api/auth/usuarios`,{
       headers:{
         'Authorization': `Bearer ${this.token}`
       }
@@ -179,7 +179,7 @@ export default {
     async eliminar(id){
       this.loader = true
       try{
-      let response = await this.axios.delete(`http://127.0.0.1:8000/api/auth/usuario/eliminar/${id}`,{
+      let response = await this.axios.delete(`https://branditechnology.herokuapp.com/api/auth/usuario/eliminar/${id}`,{
         headers:{
           'Authorization': `Bearer ${this.token}`
         }

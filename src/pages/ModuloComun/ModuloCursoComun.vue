@@ -72,7 +72,7 @@ export default {
     },
   created(){
     localStorage.removeItem('c')
-    axios.get(`http://127.0.0.1:8000/api/auth/area/cursos/ver/${this.id}`,{
+    axios.get(`https://branditechnology.herokuapp.com/api/auth/area/cursos/ver/${this.id}`,{
       headers:{
         'Authorization': `Bearer ${this.token}`
       }
@@ -150,7 +150,7 @@ export default {
       this.loader2 = false
       try {
         
-      this.axios.get(`http://127.0.0.1:8000/api/auth/cursos/compra/${id}/${this.us}`,{
+      this.axios.get(`https://branditechnology.herokuapp.com/api/auth/cursos/compra/${id}/${this.us}`,{
         headers:{
           "Authorization": `Bearer ${this.token}`
         }

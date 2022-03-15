@@ -68,7 +68,7 @@
             }
       };
 
-      await this.axios.post('http://127.0.0.1:8000/api/auth/modalidad/cursos/crear',this.modalidad, config)
+      await this.axios.post('https://branditechnology.herokuapp.com/api/auth/modalidad/cursos/crear',this.modalidad, config)
       .then(response => {
         this.modalidad.nombre = ''
         this.modalidad.estado = ''

@@ -66,7 +66,7 @@
     //funcion para mostrar en la vista los datos de la modalidad
     async MostrarModalidad() {
       //hay que pasarle la ruta con get
-      await this.axios.get(`http://127.0.0.1:8000/api/auth/modalidad/cursos/ver/${this.id}`)
+      await this.axios.get(`https://branditechnology.herokuapp.com/api/auth/modalidad/cursos/ver/${this.id}`)
       .then(response => {
         // console.log(response.data);
         const {nombre,estado} = response.data.modalidad
@@ -90,7 +90,7 @@
       };
 
       //hay que pasarle la ruta con el id
-      await this.axios.put(`http://127.0.0.1:8000/api/auth/modalidad/cursos/modificar/${this.id}`,this.modalidad, config)
+      await this.axios.put(`https://branditechnology.herokuapp.com/api/auth/modalidad/cursos/modificar/${this.id}`,this.modalidad, config)
       .then(response => {
         this.loader = false
         this.loader2 = true

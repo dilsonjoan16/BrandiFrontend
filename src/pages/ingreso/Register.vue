@@ -42,7 +42,7 @@
         this.loader = true
         this.loader2 = false
         if (regla2.test(this.register.password)) {
-          await this.axios.post(`http://127.0.0.1:8000/api/auth/register`, this.register)
+          await this.axios.post(`https://branditechnology.herokuapp.com/api/auth/register`, this.register)
           .then(response => {
             this.$swal({
               icon: 'success',

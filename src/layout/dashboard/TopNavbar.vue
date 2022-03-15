@@ -78,6 +78,7 @@ export default {
     async logout() {
       localStorage.removeItem('user_token');
       localStorage.removeItem('cod');
+      localStorage.removeItem('rol');
       localStorage.removeItem('us')
       localStorage.removeItem('ref');
       this.$swal('Salida del sistema exitosa!', 'Usuario deslogueado con exito!', 'OK');

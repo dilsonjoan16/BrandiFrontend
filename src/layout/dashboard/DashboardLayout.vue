@@ -97,7 +97,7 @@ export default {
       }
     },
     async User(){
-      let response = await this.axios.get(`http://127.0.0.1:8000/api/auth/perfil/${this.id}`,{
+      let response = await this.axios.get(`https://branditechnology.herokuapp.com/api/auth/perfil/${this.id}`,{
         headers:{
           'Authorization': `Bearer ${this.token}`
         }

@@ -53,7 +53,7 @@
         this.loader = true
         this.loader2 = false
 
-          await this.axios.post(`http://127.0.0.1:8000/api/auth/login`, this.login)
+          await this.axios.post(`https://branditechnology.herokuapp.com/api/auth/login`, this.login)
           .then(response => {
             localStorage.setItem('user_token', response.data.token.original.access_token);
             localStorage.setItem('us', response.data.usuario.id);
